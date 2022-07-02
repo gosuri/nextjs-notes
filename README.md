@@ -3,7 +3,9 @@
 ## Introduction to React
 
 React is a declarative UI library. One can declare the desired DOM state (using JSX language) and will figure out how to update the DOM on your behalf.
-Imperative vs. Declarative Programming
+
+### Imperative vs. Declarative Programming
+
 Imperative is verbose, where functions are implicitly coded in every step required to solve a problem. For example:
 
 ```html
