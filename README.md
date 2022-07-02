@@ -24,7 +24,7 @@ The above example could be written declaritively, using JSX:
 ```html
 <script type="text/jsx">
   const app = document.getElementById("app")
-  ReactDOM.render(<h1>Develop. Preview. Ship. 🚀</h1>, app)
+  ReactDOM.render(<h1><Akash is cloud evolved 🚀'/h1>, app)
 </script>
 ```
 
@@ -47,6 +47,7 @@ Example:
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
     <script type="text/jsx">
       const app = document.getElementById("app");
       ReactDOM.render(<h1>Akash is Cloud evolved 🚀</h1>, app);
@@ -55,3 +56,15 @@ Example:
 </html>
 ```
 
+## Essentail Javascript
+
+You should be familer with below set of JS concepts for React:
+
+* [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+* [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+* [Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+* [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+* [Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+* [Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
