@@ -97,7 +97,7 @@ In React, components are functions. Inside your script tag, write a function cal
                     { /* Header is nested under homepage */}
                     <Header />
                 </div>
-            );
+          );
         }
 
         ReactDOM.render(<HomePage/>, app);
@@ -106,4 +106,176 @@ In React, components are functions. Inside your script tag, write a function cal
 
 ## Props
 
- You can pass pieces of information as properties to React components using `props`.
+ You can pass pieces of information as properties to React components using `props` object. To use the variable you defined, you can use curly braces {}, a special JSX syntax that allows you to write regular JavaScript directly inside your JSX markup.
+
+ ```jsx
+  function Header(props){
+      return <h1>{props.title}</h1>
+  }
+ ```
+
+ Since props is an object, you can use object destructuring to name the values of props inside your function parameters explicitly:
+
+ ```jsx
+  function Header({title = "default title"}){
+      return <h1>{title}</h1>
+  }
+ ```
+
+### Iterating through lists
+
+You can then use the `array.map()` method to iterate over the array and use an arrow function to map a name to a list item:
+
+```jsx
+function Header({title = "Great Scientists"}){
+    return <h1>{title}</h1>
+}
+
+function HomePage() {
+    const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+
+    return (
+        <div>
+            { /* Header is nested under homepage */}
+            <Header title="Akash is cloud evolved! 🚀"/>
+            <Header />
+
+            <ul>
+                {names.map((name) => (
+                    <li key={name}>{name}</li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+```
+
+## State and Hooks
+
+React has a set of functions called hooks. Hooks allow you to add additional logic such as state to your components. You can think of state as any information in your UI that changes over time, usually triggered by user interaction.
+
+React hook `useState()` is called to manage state.  `useState()` returns an array which can be destructed to variables.
+
+The first item in the array is the state `value`, which you can name anything. 
+
+The second item in the array is a function to `update` the value. You can name the update function anything, but it's common to prefix it with `set` followed by the name of the state variable you’re updating. You can also add a default value, like `zero`.
+
+```jsx
+function HomePage() {
+  const [likes, setLikes] = React.useState(0);
+
+  function handleClick() {
+      setLikes(likes + 1)
+  }
+
+  return (
+    <div>
+      {/* ... */}
+      <button onClick={handleClick}>Likes ({likes})</button>
+    </div>
+  )
+}
+```
+
+Clicking the button will now call the `handleClick` function, which calls the `setLikes` state updater function with a single argument of the current number of likes + 1.
+
+#### Futher Reading
+
+* [Adding Interactivity](https://beta.reactjs.org/learn/adding-interactivity)
+* [Managing State](https://beta.reactjs.org/learn/managing-state)
+* [How React handles renders](https://beta.reactjs.org/learn/render-and-commit)
+* [How to use refs](https://beta.reactjs.org/learn/referencing-values-with-refs)
+* [Passing Data Deeply with Context](https://beta.reactjs.org/learn/passing-data-deeply-with-context)
+* [How to use React API hooks such as `useEffect`](https://beta.reactjs.org/apis)
+
+
+## From React to Next.js
+
+Install React and Next libraries using `npm`. Install npm on homebrew using `brew install npm`.
+
+```sh
+npm install react react-dom next
+```
+
+Once the installation is complete, you should be able to see your project dependencies listed inside your `package.json` file:
+
+```
+{
+  "dependencies": {
+    "next": "^12.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
+```
+
+Jumping back to the index.html file, you can delete the following code:
+
+1. The `react` and `react-dom` scripts since you’ve installed them with NPM.
+1. The `<html>` and `<body>` tags because Next.js will create these for you.
+1. The code that interacts with app element and ReactDom.render() method.
+1. The Babel script because Next.js has a compiler that transforms JSX into valid JavaScript browsers can understand.
+1. The `<script type="text/jsx">` tag.
+1. The React. part of the `React.useState(0)` function
+1. The only code left in the HTML file is JSX, so you can change the file type from .html to .js or .jsx.
+1. Move the index.js file to a new folder called pages (more on this later).
+1. Add default export to your main React component to help Next.js distinguish which component to render as the main component of this page.
+1. Add a script to your package.json file to run the Next.js development server while you develop.
+
+
+Add a script to your package.json file to run the Next.js development server while you develop.
+```
+   // package.json
+   {
+    "scripts": {
+        "dev": "next dev"
+    },
+     // "dependencies": {
+     //   "next": "^11.1.0",
+     //   "react": "^17.0.2",
+     //   "react-dom": "^17.0.2"
+     // }
+   }
+```
+
+After deleting the lines above, add `import { useState } from "react"` to the top of your file. Your code should look like this:
+
+
+```jsx
+import { useState } from 'react';
+
+function Header({ title }) {
+  return <h1>{title ? title : 'Default title'}</h1>;
+}
+
+export default function HomePage() {
+  const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+  const [likes, setLikes] = useState(0);
+
+  function handleClick() {
+    setLikes(likes + 1);
+  }
+
+  return (
+    <div>
+      <Header title="Akash is Cloud Evolved 🚀" />
+      <ul>
+        {names.map((name) => (
+          <li key={name}>{name}</li>
+        ))}
+      </ul>
+
+      <button onClick={handleClick}>Like ({likes})</button>
+    </div>
+  );
+}
+```
+
+
+### Running Dev Server
+
+Run using the command below and test by navigating to http://localhost:3000 in the browser.
+
+```sh
+ npm run dev
+```

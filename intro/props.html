@@ -10,15 +10,24 @@
     <script type="text/jsx">
         const app = document.getElementById("app");
 
-        function Header(){
-            return <h1>Akash is Cloud evolved 🚀</h1>;
+        function Header({title = "Great Scientists"}){
+            return <h1>{title}</h1>
         }
 
         function HomePage() {
+            const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+
             return (
                 <div>
                     { /* Header is nested under homepage */}
+                    <Header title="Akash is cloud evolved! 🚀"/>
                     <Header />
+
+                    <ul>
+                        {names.map((name) => (
+                            <li key={name}>{name}</li>
+                        ))}
+                    </ul>
                 </div>
             );
         }
