@@ -1,6 +1,6 @@
 # NextJS
 
-# Introduction to React
+## Introduction to React
 
 React is a declarative UI library. One can declare the desired DOM state (using JSX language) and will figure out how to update the DOM on your behalf.
 Imperative vs. Declarative Programming
@@ -26,7 +26,7 @@ The above example could be written declaratively, using JSX:
 </script>
 ```
 
-## Using React
+### Using React
 
 To use React in your project, you can load two React scripts from an external website called unpkg.com:
 
@@ -54,7 +54,7 @@ Example:
 </html>
 ```
 
-## Essential Javascript
+### Essential Javascript
 
 You should be familiar with the below set of JS concepts for React:
 
@@ -69,7 +69,7 @@ You should be familiar with the below set of JS concepts for React:
 
 
 
-## Reach Core Concepts
+### React Core Concepts
 
 Three core concepts behind React are:
 
@@ -77,7 +77,7 @@ Three core concepts behind React are:
 * Props
 * State
 
-## Components
+#### Components
 
 User interfaces are broken down into smaller building blocks called components. Components allow you to build self-contained, reusable snippets of code, like LEGO blocks; you can combine components to create larger components. This modularity allows you to create maintainable code.
 
@@ -104,7 +104,7 @@ In React, components are functions. Inside your script tag, write a function cal
     </script>
 ```
 
-## Props
+#### Props
 
  You can pass pieces of information as properties to React components using `props` object. To use the variable you defined, you can use curly braces {}, a special JSX syntax that allows you to write regular JavaScript directly inside your JSX markup.
 
@@ -122,7 +122,7 @@ In React, components are functions. Inside your script tag, write a function cal
   }
  ```
 
-### Iterating through lists
+##### Iterating through lists
 
 You can then use the `array.map()` method to iterate over the array and use an arrow function to map a name to a list item:
 
@@ -150,7 +150,7 @@ function HomePage() {
 }
 ```
 
-## State and Hooks
+### State and Hooks
 
 React has a set of functions called hooks. Hooks allow you to add additional logic such as state to your components. You can think of state as any information in your UI that changes over time, usually triggered by user interaction.
 
@@ -220,23 +220,8 @@ Jumping back to the index.html file, you can delete the following code:
 1. The only code left in the HTML file is JSX, so you can change the file type from .html to .js or .jsx.
 1. Move the index.js file to a new folder called pages (more on this later).
 1. Add default export to your main React component to help Next.js distinguish which component to render as the main component of this page.
-1. Add a script to your package.json file to run the Next.js development server while you develop.
 
 
-Add a script to your package.json file to run the Next.js development server while you develop.
-```
-   // package.json
-   {
-    "scripts": {
-        "dev": "next dev"
-    },
-     // "dependencies": {
-     //   "next": "^11.1.0",
-     //   "react": "^17.0.2",
-     //   "react-dom": "^17.0.2"
-     // }
-   }
-```
 
 After deleting the lines above, add `import { useState } from "react"` to the top of your file. Your code should look like this:
 
@@ -271,6 +256,16 @@ export default function HomePage() {
 }
 ```
 
+Finally, add a script to your `package.json` file to run the Next.js development server while you develop.
+
+```
+{
+  "scripts": {
+      "dev": "next dev"
+  },
+  ...
+}
+```
 
 ### Running Dev Server
 
