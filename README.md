@@ -56,7 +56,7 @@ Example:
 </html>
 ```
 
-## Essentail Javascript
+## Essential Javascript
 
 You should be familer with below set of JS concepts for React:
 
