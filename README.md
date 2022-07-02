@@ -2,11 +2,9 @@
 
 # Introduction to React
 
-React is a declarative UI library. One can declare the desired DOM state (using JSX language), React will figure out the steps of how to update the DOM on your behalf.
-
-## Imperative vs Declarative Programming
-
-Impeative is a verbose where functions are implicitly coded in every step required to solve a problem. For example:
+React is a declarative UI library. One can declare the desired DOM state (using JSX language) and will figure out how to update the DOM on your behalf.
+Imperative vs. Declarative Programming
+Imperative is verbose, where functions are implicitly coded in every step required to solve a problem. For example:
 
 ```html
 <!-- index.html -->
@@ -19,7 +17,7 @@ Impeative is a verbose where functions are implicitly coded in every step requir
 </script>
 ```
 
-The above example could be written declaritively, using JSX:
+The above example could be written declaratively, using JSX:
 
 ```html
 <script type="text/jsx">
@@ -58,7 +56,7 @@ Example:
 
 ## Essential Javascript
 
-You should be familer with below set of JS concepts for React:
+You should be familiar with the below set of JS concepts for React:
 
 * [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
@@ -68,3 +66,44 @@ You should be familer with below set of JS concepts for React:
 * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 * [Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
 * [Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+
+
+
+## Reach Core Concepts
+
+Three core concepts behind React are:
+
+* Components
+* Props
+* State
+
+## Components
+
+User interfaces are broken down into smaller building blocks called components. Components allow you to build self-contained, reusable snippets of code, like LEGO blocks; you can combine components to create larger components. This modularity allows you to create maintainable code.
+
+In React, components are functions. Inside your script tag, write a function called header:
+
+```html
+    <script type="text/jsx">
+        const app = document.getElementById("app");
+
+        function Header(){
+            return <h1>Akash is Cloud evolved 🚀</h1>;
+        }
+
+        function HomePage() {
+            return (
+                <div>
+                    { /* Header is nested under homepage */}
+                    <Header />
+                </div>
+            );
+        }
+
+        ReactDOM.render(<HomePage/>, app);
+    </script>
+```
+
+## Props
+
+ You can pass pieces of information as properties to React components using `props`.
